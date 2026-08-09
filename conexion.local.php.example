@@ -1,0 +1,12 @@
+<?php
+// Plantilla para producción (InfinityFree).
+//
+// Copia este archivo como "conexion.local.php" DIRECTAMENTE en el
+// servidor (por FTP o el administrador de archivos de InfinityFree),
+// con tus credenciales reales. conexion.local.php está en .gitignore:
+// no lo subas nunca a git ni lo despliegues desde el repositorio.
+
+$servidor = "sql111.infinityfree.com";
+$usuarioBD = "if0_XXXXXXXX";
+$passwordBD = "coloca_aqui_la_contrasena_real";
+$basedatos = "if0_XXXXXXXX_trailers";
