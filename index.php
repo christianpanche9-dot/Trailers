@@ -1,5 +1,6 @@
 
 <?php
+// cache-bust deploy check
 session_start();
 require_once "seguridad.php";
 
