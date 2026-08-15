@@ -2,9 +2,13 @@
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     margin: 0;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     background: #121212;
     color: #ffffff;
 }
@@ -19,6 +23,7 @@ header {
 header h1 {
     margin: 0;
     font-size: 2.2rem;
+    letter-spacing: 0.01em;
 }
 
 header p {
@@ -43,7 +48,7 @@ header p {
     text-decoration: none;
     font-weight: bold;
     font-size: 0.95rem;
-    transition: background-color 0.2s, border-color 0.2s;
+    transition: background-color 0.2s, border-color 0.2s, transform 0.15s ease;
 }
 
 .boton-login {
@@ -68,12 +73,18 @@ header p {
 }
 
 nav {
-    background: #293137;
+    background: rgba(41, 49, 55, 0.85);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
     padding: 12px;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     gap: 6px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.3);
 }
 
 nav a {
@@ -82,6 +93,7 @@ nav a {
     font-weight: bold;
     padding: 8px 12px;
     border-radius: 6px;
+    transition: background-color 0.2s ease;
 }
 
 footer a {
@@ -100,7 +112,7 @@ footer a:hover{
 }
 
 nav a:hover {
-    background: #c05959;
+    background: #007acc;
 }
 
 .contenedor, .contenedor-ficha {
@@ -128,6 +140,16 @@ nav a:hover {
     display:flex;
     flex-direction:column;
     gap:10px;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.tarjeta:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 16px 32px rgba(0, 0, 0, 0.5);
+}
+
+.tarjeta:hover .cartel {
+    transform: scale(1.03);
 }
 
 .tarjeta h3,
@@ -143,11 +165,13 @@ nav a:hover {
 
 .etiqueta {
     display: inline-block;
-    background: #e8f1fa;
-    color: #000000;
-    padding: 5px 10px;
+    background: rgba(255, 255, 255, 0.12);
+    color: #ffffff;
+    padding: 5px 12px;
     border-radius: 20px;
     font-size: 0.85rem;
+    font-weight: bold;
+    letter-spacing: 0.02em;
     margin-top: 8px;
 }
 
@@ -156,6 +180,25 @@ nav a:hover {
     font-family: inherit;
     font-size: 1rem;
     line-height: normal;
+    transition: background-color 0.2s ease, transform 0.15s ease;
+}
+
+.boton:hover,
+.boton-secundario:hover,
+.boton-iniciar:hover,
+.boton-azul:hover,
+.boton-login:hover,
+.boton-registro:hover {
+    transform: translateY(-2px);
+}
+
+.boton:active,
+.boton-secundario:active,
+.boton-iniciar:active,
+.boton-azul:active,
+.boton-login:active,
+.boton-registro:active {
+    transform: translateY(0);
 }
 
 .boton::-moz-focus-inner,
@@ -180,6 +223,15 @@ nav a:hover {
 
 .boton:hover {
     background: #F40612;
+}
+
+.boton-azul {
+    background: #005a9e;
+    transition: background-color 0.2s ease, transform 0.15s ease;
+}
+
+.boton-azul:hover {
+    background: #003f73;
 }
 
 .formulario {
@@ -241,6 +293,12 @@ nav a:hover {
     border-radius: 14px;
     text-align: center;
     box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.caja-estadistica:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 26px rgba(0, 0, 0, 0.45);
 }
 
 .caja-estadistica h3 {
@@ -339,6 +397,11 @@ width: auto;
     cursor: pointer;
     font-weight: bold;
     text-align:center;
+    transition: background-color 0.2s ease, transform 0.15s ease;
+}
+
+.boton-iniciar:hover {
+    background: #009930;
 }
 
 
@@ -416,6 +479,12 @@ border: 1px solid #dce5f0;
 border-radius: 14px;
 padding: 20px;
 color: #424242;
+transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.pelicula-relacionada:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 26px rgba(0, 0, 0, 0.18);
 }
 .pelicula-relacionada h4 {
     margin-top: 0;
@@ -563,7 +632,8 @@ width:100%;
 aspect-ratio: 2 / 3;
 object-fit:cover;
 border-radius:8px;
-box-shadow:0 0 10px #999;
+box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+transition: transform 0.25s ease;
 }
 
 .paginacion{
@@ -579,6 +649,7 @@ box-shadow:0 0 10px #999;
     color:white;
     text-decoration:none;
     border-radius:6px;
+    transition: background-color 0.2s ease;
 }
 
 .paginacion a:hover{
@@ -586,7 +657,7 @@ box-shadow:0 0 10px #999;
 }
 
 .paginacion a.activo{
-    background:#c62828;
+    background:#E50914;
     font-weight:bold;
 }
 
@@ -624,7 +695,7 @@ box-shadow:0 0 10px #999;
     object-fit: cover;
     object-position: top center;
     border-radius: 50%;
-    box-shadow: 0 0 12px #999;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
     align-self: center;
 }
 

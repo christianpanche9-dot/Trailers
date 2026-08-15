@@ -20,7 +20,7 @@ if (isset($_SESSION["id_usuario"])) {
             <label>Contraseña</label>
             <input type="password" name="password" required>
         </div>
-        <button type="submit" class="boton">Iniciar sesión</button>
+        <button type="submit" class="boton boton-azul">Iniciar sesión</button>
         <a href="registro_usuarios.php" class="boton-iniciar">Registrarse</a>
     </form>
     
