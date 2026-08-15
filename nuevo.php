@@ -9,9 +9,9 @@ include_once "conexion.php";
 
 
 
-$sql = "SELECT id_actor, nombre
+$sql = "SELECT id_actor, nombre, apellidos
         FROM actores
-        ORDER BY nombre";
+        ORDER BY apellidos, nombre";
 
 $resultado = $conexion->query($sql);
 
@@ -76,19 +76,23 @@ $resultado = $conexion->query($sql);
         <h2>Actores y actrices</h2>
 
         <p>Selecciona los actores que participan en la película:</p>
+        <div class="lista-seleccion-actores">
             <?php while ($actor = $resultado->fetch_assoc()) { ?>
-            <div class="campo">
-            <label class="checkbox">
-            <input type="checkbox" class="checkActor" name="actores[]" value="<?php echo (int) $actor['id_actor']; ?>">
-            <?php echo htmlspecialchars($actor['nombre']); ?>
-            </label>
+            <div class="actor-opcion">
+                <div class="campo">
+                <label class="checkbox">
+                <input type="checkbox" class="checkActor" name="actores[]" value="<?php echo (int) $actor['id_actor']; ?>">
+                <?php echo htmlspecialchars(trim($actor['nombre'] . " " . $actor['apellidos'])); ?>
+                </label>
+                </div>
+                <div class="campo personaje">
+                <input type="text"
+                   name="personaje[<?php echo $actor['id_actor']; ?>]"
+                   placeholder="Nombre del personaje">
+                </div>
             </div>
-            <div class="campo personaje">
-            <input type="text"
-               name="personaje[<?php echo $actor['id_actor']; ?>]"
-               placeholder="Nombre del personaje">
-            </div>  
             <?php } ?>
+        </div>
         <br>
         <button class="boton" type="submit">Guardar Película</button>
     </form>

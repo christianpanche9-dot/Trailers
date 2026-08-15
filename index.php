@@ -131,8 +131,6 @@ include "includes/menu.php";
                 <br>
                 <iframe id="trailer<?= $pelicula['id_peliculas'] ?>"
                         class="trailer"
-                        width="90%"
-                        height="45%"
                         src="<?= htmlspecialchars($pelicula['link']) ?>"
                         data-src="<?= htmlspecialchars($pelicula['link']) ?>"
                         style="display:none;"
