@@ -167,6 +167,16 @@ function rutaFotoActor($foto) {
     return "imagenes/" . $foto;
 }
 
+function rutaImagenPelicula($imagenes) {
+    if (empty($imagenes)) {
+        return "imagenes/sin-imagen.jpg";
+    }
+    if (preg_match('/^https?:\/\//i', $imagenes)) {
+        return $imagenes;
+    }
+    return "imagenes/" . $imagenes;
+}
+
 function buscarActoresPeliculas($conexion, $texto){
 
     $sql = "SELECT

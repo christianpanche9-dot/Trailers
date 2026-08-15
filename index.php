@@ -83,16 +83,7 @@ include "includes/menu.php";
     <div class="grid-peliculas">
        <?php while ($pelicula = $peliculasMostradas->fetch_assoc()) { ?>
             <article class="tarjeta">
-                <?php if($pelicula["imagenes"]=="")
-                    {
-                    $imagenes="sin-imagen.jpg";
-                    }
-                    else
-                    {
-                    $imagenes=$pelicula["imagenes"];
-                    }
-                    ?>
-                    <img src="imagenes/<?php echo htmlspecialchars($imagenes); ?>" width="160" class="cartel">
+                    <img src="<?php echo htmlspecialchars(rutaImagenPelicula($pelicula["imagenes"])); ?>" width="160" class="cartel">
                 <h3><?php echo htmlspecialchars($pelicula["titulo"]); ?></h3>
                 <p><strong>Autor:</strong> <?php echo htmlspecialchars($pelicula["director"]); ?></p>
                 <p><strong>Año:</strong> <?php echo (int) $pelicula["anio"]; ?></p>

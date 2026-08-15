@@ -13,6 +13,7 @@ exit();
 }
 
 include "conexion.php";
+include_once "includes/funciones.php";
 if (!isset($_GET["id"])) {
 die("No se ha indicado ninguna película.");
 }
@@ -113,7 +114,7 @@ value="<?php echo htmlspecialchars($pelicula['link']); ?>">
 
     <?php if (!empty($pelicula['imagenes'])) { ?>
         <br>
-        <img src="imagenes/<?php echo htmlspecialchars($pelicula['imagenes']); ?>"
+        <img src="<?php echo htmlspecialchars(rutaImagenPelicula($pelicula['imagenes'])); ?>"
              width="120"
              alt="Portada actual">
     <?php } ?>
